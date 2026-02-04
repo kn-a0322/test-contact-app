@@ -5,7 +5,7 @@
 @endsection
 
 @section('header-button')
-    {{-- レジスターボタン--}}
+    <a href="/register" class="register-button">Register</a>
 @endsection
 
 @section('content')
@@ -15,13 +15,13 @@
             @csrf
             <div class="login-form__item">
                 <label class="login-form__label" for="email">メールアドレス</label>
-                <input class="login-form__input" type="email" id="email" name="email" required />
+                <input class="login-form__input" type="email" id="email" name="email" value="{{ old('email') }}" />
                 @error('email')
                     <span class="login-form__error">{{ $message }}</span>
                 @enderror
             <div class="login-form__item">
                 <label class="login-form__label" for="password">パスワード</label>
-                <input class="login-form__input" type="password" id="password" name="password" required />
+                <input class="login-form__input" type="password" id="password" name="password"  />
                 @error('password')
                     <span class="login-form__error">{{ $message }}</span>
                 @enderror

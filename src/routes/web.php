@@ -27,10 +27,8 @@ Route::get('/admin', [ContactController::class, 'admin']);
 
 Route::get('/admin/search', [ContactController::class, 'search']);
 
-// ログアウト用（一時的）
-Route::get('/logout', function () {
-    Auth::logout();
-    request()->session()->invalidate();
-    request()->session()->regenerateToken();
-    return redirect('/login');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [ContactController::class, 'admin']);
+    Route::get('/admin/search', [ContactController::class, 'search']);
 });

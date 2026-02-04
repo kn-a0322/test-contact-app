@@ -12,6 +12,10 @@
 @endsection
 
 @section('content')
+<form action="/logout" method="post">
+    @csrf
+    <button type="submit">logout</button>
+</form>
 <div class="admin-form__content">
         <div class="admin-form__heading">
             <h2>Admin</h2>
