@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -26,5 +27,17 @@ class ContactController extends Controller
         $contact['category_name'] = $categories[$contact['category_id']];
 
         return view('confirm', compact('contact'));
+    }
+
+    public function store(Request $request)
+    {
+        if($request->input('action') === 'back') {
+            return redirect('/')->withInput();
+    }
+
+    $contact = $request->only(['category_id', 'last_name', 'first_name', 'gender', 'email', 'tel', 'address', 'building', 'detail']);
+    Contact::create($contact);
+
+    return view('thanks');
     }
 }
