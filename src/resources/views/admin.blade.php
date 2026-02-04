@@ -1,3 +1,17 @@
+@extends('layouts.app')
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/') }}" />
+@endsection
+
+@section('header-button')
+    <form action="/logout" method="post">
+        @csrf
+        <button type="submit" class="logout-button">ログアウト</button>
+    </form>
+@endsection
+
+@section('content')
 <div class="admin-form__content">
         <div class="admin-form__heading">
             <h2>Admin</h2>

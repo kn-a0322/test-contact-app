@@ -1,3 +1,10 @@
+@extends('layouts.app')
+
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/') }}" />
+@endsection
+
+@section('content')
 <div class="contact-form__content">
         <div class="content-form__heading">
             <h2>Contact</h2>

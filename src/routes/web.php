@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ContactController;
 
 /*
@@ -25,3 +26,11 @@ Route::get('/thanks', [ContactController::class, 'thanks']);
 Route::get('/admin', [ContactController::class, 'admin']);
 
 Route::get('/admin/search', [ContactController::class, 'search']);
+
+// ログアウト用（一時的）
+Route::get('/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/login');
+});
