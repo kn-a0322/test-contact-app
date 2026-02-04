@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use App\Models\Category;
 
 class ContactController extends Controller
 {
@@ -17,17 +18,16 @@ class ContactController extends Controller
         $contact = $request->all();
         $contact['tel'] = $contact['tel1']  . $contact['tel2'] .  $contact['tel3'];
 
-        $categories = [
-            '1' => '商品のお届けについて',
-            '2' => '商品の交換について',
-            '3' => '商品トラブル',
-            '4' => 'ショップへのお問い合わせ',
-            '5' => 'その他',
-        ];
-        $contact['category_name'] = $categories[$contact['category_id']];
-
-        return view('confirm', compact('contact'));
+        $category = Category::find($request->category_id);
+        
+        if($category) {
+            $contact['category_name'] = $category->content;
+        }else{
+            $contact['category_name'] = '';
+        }
+    return view('confirm', compact('contact'));
     }
+
 
     public function store(Request $request)
     {
@@ -39,5 +39,27 @@ class ContactController extends Controller
     Contact::create($contact);
 
     return view('thanks');
+    }
+
+    public function admin()
+    {
+        $contacts = Contact::with('category')->Paginate(7);
+        $categories = Category::all();//検索用のカテゴリーを取得
+
+        return view('admin', compact('contacts', 'categories'));
+    }
+
+    public function search(Request $request)
+    {
+        $contacts = Contact::with('category')
+        ->KeywordSearch($request->keyword)
+        ->GenderSearch($request->gender)
+        ->CategorySearch($request->category_id)
+        ->DateSearch($request->date)
+        ->Paginate(7);
+
+        $categories = Category::all();
+        
+        return view('admin', compact('contacts', 'categories'));
     }
 }
