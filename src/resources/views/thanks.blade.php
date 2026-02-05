@@ -3,5 +3,5 @@
             <h2>お問合せありがとうございました</h2>
             <p>Thank you</p>
         </div>
-        <button class="thanks-form__button">HOME</button>
+        <a href="/" class="thanks-form__button">HOME</a>
     </div>

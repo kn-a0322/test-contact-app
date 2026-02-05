@@ -19,6 +19,7 @@
                 @error('email')
                     <span class="login-form__error">{{ $message }}</span>
                 @enderror
+            </div>
             <div class="login-form__item">
                 <label class="login-form__label" for="password">パスワード</label>
                 <input class="login-form__input" type="password" id="password" name="password"  />

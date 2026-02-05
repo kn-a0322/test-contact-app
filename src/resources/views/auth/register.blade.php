@@ -5,7 +5,7 @@
 @endsection
 
 @section('header-button')
-    {{-- ログインボタン--}}
+    <a href="/login" class="login-button">login</a>
 @endsection
 
 @section('content')
@@ -15,21 +15,21 @@
             @csrf
             <div class="register-form__item">
                 <label class="register-form__label" for="name">お名前</label>
-                <input class="register-form__input" type="text" id="name" name="name" required />
+                <input class="register-form__input" type="text" id="name" name="name" value="{{ old('name') }}" />
                 @error('name')
                     <span class="register-form__error">{{ $message }}</span>
                 @enderror
             </div>
             <div class="register-form__item">
                 <label class="register-form__label" for="email">メールアドレス</label>
-                <input class="register-form__input" type="email" id="email" name="email" required />
+                <input class="register-form__input" type="email" id="email" name="email" value="{{ old('email') }}" />
                 @error('email')
                     <span class="register-form__error">{{ $message }}</span>
                 @enderror
             </div>
             <div class="register-form__item">
                 <label class="register-form__label" for="password">パスワード</label>
-                <input class="register-form__input" type="password" id="password" name="password" required />
+                <input class="register-form__input" type="password" id="password" name="password" />
                 @error('password')
                     <span class="register-form__error">{{ $message }}</span>
                 @enderror
