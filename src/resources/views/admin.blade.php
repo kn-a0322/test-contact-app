@@ -38,7 +38,7 @@
             <a href="/reset" class="reset__button">リセット</a>
         </form>
             <div class="admin-form__controller">
-                <button class="export-button">エクスポート</button>
+                <a href="/export?keyword={{ request('keyword') }}&gender={{ request('gender') }}&category_id={{ request('category_id') }}&date={{ request('date') }}" class="export-button">エクスポート</a>
                 <div class="admin-table__pagination">
                     {!! $contacts->links() !!}
                 </div>

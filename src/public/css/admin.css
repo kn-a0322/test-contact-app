@@ -8,6 +8,22 @@
     cursor: pointer;
 }
 
+/* エクスポートボタン */
+.export-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.export-button:hover {
+    background-color: #218838;
+}
+
 /* モーダルウィンドウ全体の囲み */
 .modal-container {
     display: none; /* 初期状態は非表示 */

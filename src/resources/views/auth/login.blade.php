@@ -15,14 +15,14 @@
             @csrf
             <div class="login-form__item">
                 <label class="login-form__label" for="email">メールアドレス</label>
-                <input class="login-form__input" type="email" id="email" name="email" value="{{ old('email') }}" />
+                <input class="login-form__input" type="email" id="email" name="email" placeholder="例：test@example.com" value="{{ old('email') }}" />
                 @error('email')
                     <span class="login-form__error">{{ $message }}</span>
                 @enderror
             </div>
             <div class="login-form__item">
                 <label class="login-form__label" for="password">パスワード</label>
-                <input class="login-form__input" type="password" id="password" name="password"  />
+                <input class="login-form__input" type="password" id="password" name="password" placeholder="例：coachtech1106" />
                 @error('password')
                     <span class="login-form__error">{{ $message }}</span>
                 @enderror

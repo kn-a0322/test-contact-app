@@ -60,7 +60,8 @@ class ContactController extends Controller
         ->GenderSearch($request->gender)
         ->CategorySearch($request->category_id)
         ->DateSearch($request->date)
-        ->Paginate(7);
+        ->Paginate(7)
+        ->appends($request->all()); // 検索パラメータをページネーションリンクに追加
 
         $categories = Category::all();
 
@@ -78,9 +79,57 @@ class ContactController extends Controller
         return redirect('/admin')->with('message', '削除しました');
     }
 
-    public function export()
+    public function export(Request $request)
     {
-        // エクスポート機能は後ほど実装
-        return redirect('/admin')->with('message', 'エクスポート機能は実装中です');
+        // 検索条件を適用してデータを取得
+        $contacts = Contact::with('category')
+            ->KeywordSearch($request->keyword)
+            ->GenderSearch($request->gender)
+            ->CategorySearch($request->category_id)
+            ->DateSearch($request->date)
+            ->get(); // 全件取得（ページネーションなし）
+
+        // CSVファイルのヘッダー（項目名）
+        $headers = [
+            'お名前',
+            '性別',
+            'メールアドレス',
+            '電話番号',
+            '住所',
+            '建物名',
+            'お問い合わせの種類',
+            'お問い合わせ内容',
+        ];
+
+        // CSVファイルを生成してダウンロード
+        return response()->streamDownload(function () use ($contacts, $headers) {
+            // 出力用のファイルハンドルを開く
+            $stream = fopen('php://output', 'w');
+            
+            // BOM（Byte Order Mark）を追加（Excelで文字化けを防ぐ）
+            fwrite($stream, "\xEF\xBB\xBF");
+            
+            // ヘッダー行を出力
+            fputcsv($stream, $headers);
+            
+            // データ行を出力
+            foreach ($contacts as $contact) {
+                $row = [
+                    $contact->last_name . ' ' . $contact->first_name, // お名前
+                    $contact->gender == 1 ? '男性' : ($contact->gender == 2 ? '女性' : 'その他'), // 性別
+                    $contact->email, // メールアドレス
+                    $contact->tel, // 電話番号
+                    $contact->address, // 住所
+                    $contact->building, // 建物名
+                    $contact->category->content, // お問い合わせの種類
+                    $contact->detail, // お問い合わせ内容
+                ];
+                fputcsv($stream, $row);
+            }
+            
+            fclose($stream);
+        }, 'contacts.csv', [
+            'Content-Type' => 'text/csv',
+        ]);
     }
 }
