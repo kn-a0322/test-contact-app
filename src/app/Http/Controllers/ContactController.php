@@ -34,12 +34,15 @@ class ContactController extends Controller
     {
         if($request->input('action') === 'back') {
             return redirect('/')->withInput();
-    }
+        }
 
-    $contact = $request->only(['category_id', 'last_name', 'first_name', 'gender', 'email', 'tel', 'address', 'building', 'detail']);
-    Contact::create($contact);
+        
+        $contact = $request->only(['category_id', 'last_name', 'first_name', 'gender', 'email', 'address', 'building', 'detail']);
+        $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
+        
+        Contact::create($contact);
 
-    return view('thanks');
+        return view('thanks');
     }
 
     public function admin()
@@ -62,5 +65,22 @@ class ContactController extends Controller
         $categories = Category::all();
 
         return view('admin', compact('contacts', 'categories'));
+    }
+
+    public function reset()
+    {
+        return redirect('/admin');
+    }
+
+    public function destroy($id)
+    {
+        Contact::find($id)->delete();
+        return redirect('/admin')->with('message', '削除しました');
+    }
+
+    public function export()
+    {
+        // エクスポート機能は後ほど実装
+        return redirect('/admin')->with('message', 'エクスポート機能は実装中です');
     }
 }

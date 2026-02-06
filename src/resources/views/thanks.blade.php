@@ -1,7 +1,24 @@
-<div class="thanks-form__content">
-        <div class="thanks__heading">
-            <h2>お問合せありがとうございました</h2>
-            <p>Thank you</p>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FashionablyLate - Thank You</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/thanks.css') }}" />
+</head>
+
+<body>
+    <main>
+        <div class="thanks-form__content">
+            <div class="thanks__heading">
+                <h2>お問合せありがとうございました</h2>
+                <p>Thank you</p>
+            </div>
+            <a href="/" class="thanks-form__button">HOME</a>
         </div>
-        <a href="/" class="thanks-form__button">HOME</a>
-    </div>
+    </main>
+</body>
+</html>
