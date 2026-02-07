@@ -8,7 +8,7 @@
   @if (Auth::check())
     <form action="/logout" method="post">
         @csrf
-        <button type="submit" class="logout-button">ログアウト</button>
+        <button type="submit" class="logout-button">Logout</button>
     </form>
   @endif
 @endsection
@@ -134,3 +134,4 @@
         </div>
         @endforeach
     </div>
+@endsection

@@ -15,7 +15,7 @@
             @csrf
             <div class="register-form__item">
                 <label class="register-form__label" for="name">お名前</label>
-                <input class="register-form__input" type="text" id="name" name="name" placeholder="例：山田 太郎" value="{{ old('name') }}" />
+                <input class="register-form__input" type="text" id="name" name="name" placeholder="例：山田  太郎" value="{{ old('name') }}" />
                 @error('name')
                     <span class="register-form__error">{{ $message }}</span>
                 @enderror

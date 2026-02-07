@@ -17,8 +17,8 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
 }
 
 /* ヘッダー */
@@ -27,37 +27,41 @@ body {
     max-width: 1512px;
     height: 100px;
     background: #fff;
-    border-bottom: 1px solid #E0DFDE;
+    border: 1px solid #E0DFDE;
     opacity: 1;
     margin: 0 auto;
     flex-shrink: 0;
     position: relative;
-    top: 0;
 }
 
 .header__inner {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 40px;
+    position: relative;
 }
 
 .header__logo {
     font-family: 'Inika', serif;
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 400;
     font-style: normal;
     line-height: 100%;
     letter-spacing: 0%;
+    text-align: center;
     color: #8B7969;
+    margin: 0;
 }
 
 .header__nav {
     list-style: none;
     display: flex;
     gap: 20px;
+    position: absolute;
+    right: 40px;
 }
 
 /* ボタンスタイル */

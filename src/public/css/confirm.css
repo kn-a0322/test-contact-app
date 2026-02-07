@@ -1,5 +1,121 @@
-/* ============================================
-   確認画面専用CSS
-   ============================================ */
+/* 確認画面のコンテナ */
+.confirm__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Inika', serif;
+}
 
-/* 後で追加 */
+/* 見出し */
+.confirm__heading {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.confirm__heading h2 {
+    font-family: 'Inika', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #8B7969;
+    height: 46px;
+    margin: 0 auto;
+    white-space: nowrap;
+}
+
+/* フォーム */
+.form {
+    max-width: 980px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* テーブル */
+.confirm-table {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.confirm-table__inner {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.confirm-table__row {
+    border: 1px solid #E0DFDE;
+}
+
+.confirm-table__header {
+    width: 300px;
+    padding: 20px 20px 20px 40px;
+    background: #baa899;
+    color: #fff;
+    font-family: 'Inika', serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #E0DFDE;
+}
+
+.confirm-table__text {
+    padding: 20px;
+    background: #fff;
+    font-family: 'Inika', serif;
+    font-size: 14px;
+    color: #8B7969;
+    border: 1px solid #E0DFDE;
+}
+
+.confirm-table__text input[type="text"],
+.confirm-table__text textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: 'Inika', serif;
+    font-size: 14px;
+    color: #8B7969;
+    outline: none;
+    resize: none;
+}
+
+.confirm-table__text span {
+    font-family: 'Inika', serif;
+    color: #8B7969;
+}
+
+/* ボタン */
+.form-button {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.form__button-submit,
+.form__button-back {
+    width: 120px;
+    height: 42px;
+    padding: 10px 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Inika', serif;
+}
+
+.form__button-submit {
+    background-color: #82756A;
+    color: #fff;
+    border: none;
+}
+
+.form__button-back {
+    background-color: transparent;
+    color: #8B7969;
+    border: none;
+    text-decoration: underline;
+    
+}

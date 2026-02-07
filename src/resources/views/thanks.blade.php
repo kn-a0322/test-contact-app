@@ -17,10 +17,10 @@
 
 <body>
     <main>
+        <div class="thanks-background">Thank you</div>
         <div class="thanks-form__content">
             <div class="thanks__heading">
-                <h2>お問合せありがとうございました</h2>
-                <p>Thank you</p>
+                <h2>お問い合せありがとうございました</h2>
             </div>
             <a href="/" class="thanks-form__button">HOME</a>
         </div>
