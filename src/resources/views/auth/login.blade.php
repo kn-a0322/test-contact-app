@@ -5,13 +5,13 @@
 @endsection
 
 @section('header-button')
-    <a href="/register" class="register-button">Register</a>
+    <a href="/register" class="register-button">register</a>
 @endsection
 
 @section('content')
     <div class="login-container">
         <h2 class="login-title">Login</h2>
-        <form class="login-form" action="/login" method="post">
+        <form class="login-form" action="/login" method="post" novalidate>
             @csrf
             <div class="login-form__item">
                 <label class="login-form__label" for="email">メールアドレス</label>

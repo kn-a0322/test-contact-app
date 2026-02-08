@@ -21,7 +21,8 @@
         <form class="admin-form__search" action="/search" method="get">
             <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください">
             <select name="gender">
-                <option value="">性別</option>
+                <option value="" disabled selected>性別</option>
+                <option value="">全て</option>
                 <option value="1">男性</option>
                 <option value="2">女性</option>
                 <option value="3">その他</option>
@@ -75,7 +76,7 @@
                 </tr>
                 @foreach ($contacts as $contact)
                 <tr class="admin-table__row">
-                    <td class="admin-table__text">{{ $contact->last_name }}&nbsp;{{ $contact->first_name }}</td>
+                    <td class="admin-table__text">{{ $contact->last_name }}&nbsp;&nbsp;{{ $contact->first_name }}</td>
                     <td class="admin-table__text">
                         @if ($contact->gender == 1)
                             <span>男性</span>
@@ -105,7 +106,7 @@
                     <table class="modal-table">
                         <tr>
                             <th class="modal-table__header">お名前</th>
-                            <td class="modal-table__text">{{ $contact->last_name }} {{ $contact->first_name }}</td>
+                            <td class="modal-table__text">{{ $contact->last_name }}&nbsp;&nbsp;{{ $contact->first_name }}</td>
                         </tr>
                         <tr>
                             <th class="modal-table__header">性別</th>

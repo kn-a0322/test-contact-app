@@ -13,12 +13,9 @@ class AuthController extends Controller
 {
     public function login(LoginRequest $request)
     {
-        
         $credentials = $request->only('email', 'password');
 
-        
         if (Auth::attempt($credentials)) {
-        
             $request->session()->regenerate();
             return redirect()->intended('/admin');
         }
@@ -46,7 +43,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect('/login');
     }
 }

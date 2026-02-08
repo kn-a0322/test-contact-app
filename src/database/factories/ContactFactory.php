@@ -13,7 +13,7 @@ class ContactFactory extends Factory
      */
     public function definition()
     {
-        // 日本語のお問い合わせ内容のサンプル
+        
         $details = [
             '商品が届いていません。配送状況を確認していただけますでしょうか。',
             '注文した商品のサイズが合わなかったため、交換をお願いしたいです。',
@@ -36,7 +36,7 @@ class ContactFactory extends Factory
             'tel' => $this->faker->numerify('##########'), 
             'address' => $this->faker->address(),
             'building' => $this->faker->secondaryAddress(),
-            'detail' => $this->faker->randomElement($details), // 日本語のサンプルからランダムに選択
+            'detail' => $this->faker->randomElement($details), 
         ];
     }
 }

@@ -85,9 +85,15 @@
     font-family: 'Inika', serif;
     font-size: 14px;
     color: #BEB1A6;
+    outline: none;
 }
 
-/* メールアドレス、住所、建物名の入力欄（全幅） */
+.form__input--text input:focus {
+    border: 1px solid #8B7969;
+    color: #000;
+}
+
+/* メールアドレス、住所、建物名の入力欄 */
 .form__group:nth-child(3) .form__input--text input,
 .form__group:nth-child(5) .form__input--text input,
 .form__group:nth-child(6) .form__input--text input {
@@ -105,9 +111,15 @@
     font-size: 14px;
     color: #BEB1A6;
     resize: vertical;
+    outline: none;
 }
 
-/* 電話番号の区切り */
+.form__input--textarea textarea:focus {
+    border: 1px solid #8B7969;
+    color: #000;
+}
+
+/* 電話番号のハイフン*/
 .form-group__tel-separator {
     margin: 0 5px;
     font-family: 'Inika', serif;
@@ -115,7 +127,7 @@
     flex-shrink: 0;
 }
 
-/* 電話番号入力欄のプレースホルダー中央揃え */
+/* 電話番号入力欄のプレースホルダー*/
 input[type="tel"] {
     text-align: center;
 }
@@ -147,6 +159,12 @@ input[type="tel"] {
     font-size: 14px;
     color: #BEB1A6;
     background: #F4F4F4;
+    outline: none;
+}
+
+.form__input--select select:focus {
+    border: 1px solid #8B7969;
+    color: #000;
 }
 
 .form__input--select option {

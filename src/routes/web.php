@@ -25,7 +25,7 @@ Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/contacts', [ContactController::class, 'store']);
 Route::get('/thanks', [ContactController::class, 'thanks']);
 
-// 管理画面（認証が必要）
+// 管理画面
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [ContactController::class, 'admin']);
     Route::get('/search', [ContactController::class, 'search']);

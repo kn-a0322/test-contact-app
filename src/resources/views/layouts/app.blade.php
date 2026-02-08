@@ -20,7 +20,6 @@
             <h1 class="header__logo">FashionablyLate</h1>
             <nav>
                 <ul class="header__nav">
-                    {{-- ここに要件に合わせたボタン（ログイン/登録/ログアウト）を配置します --}}
                     @yield('header-button')
                 </ul>
             </nav>
