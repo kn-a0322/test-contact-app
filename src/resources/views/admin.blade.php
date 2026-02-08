@@ -8,7 +8,7 @@
   @if (Auth::check())
     <form action="/logout" method="post">
         @csrf
-        <button type="submit" class="logout-button">Logout</button>
+        <button type="submit" class="logout-button">logout</button>
     </form>
   @endif
 @endsection
@@ -39,9 +39,29 @@
         </form>
             <div class="admin-form__controller">
                 <a href="/export?keyword={{ request('keyword') }}&gender={{ request('gender') }}&category_id={{ request('category_id') }}&date={{ request('date') }}" class="export-button">エクスポート</a>
-                <div class="admin-table__pagination">
-                    {!! $contacts->links() !!}
-                </div>
+                <nav class="cp_navi">
+                    <div class="cp_pagination">
+                        @if ($contacts->onFirstPage())
+                            <span class="cp_pagenum prev disabled">&lt;</span>
+                        @else
+                            <a class="cp_pagenum prev" href="{{ $contacts->appends(request()->all())->previousPageUrl() }}">&lt;</a>
+                        @endif
+
+                        @foreach(range(1, $contacts->lastPage()) as $page)
+                            @if ($page == $contacts->currentPage())
+                                <span aria-current="page" class="cp_pagenum current">{{ $page }}</span>
+                            @else
+                                <a class="cp_pagenum" href="{{ $contacts->appends(request()->all())->url($page) }}">{{ $page }}</a>
+                            @endif
+                        @endforeach
+
+                        @if ($contacts->hasMorePages())
+                            <a class="cp_pagenum next" href="{{ $contacts->appends(request()->all())->nextPageUrl() }}">&gt;</a>
+                        @else
+                            <span class="cp_pagenum next disabled">&gt;</span>
+                        @endif
+                    </div>
+                </nav>
             </div>
 
         <div class="admin-table">

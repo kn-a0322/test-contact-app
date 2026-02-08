@@ -151,88 +151,64 @@
     gap: 20px;
 }
 
-/* ページネーションラッパー */
-.admin-table__pagination {
-    flex-shrink: 0;
-}
-
 /* ページネーション */
-.admin-table__pagination nav {
-    display: flex;
-    align-items: center;
-    gap: 0;
+nav.cp_navi *, nav.cp_navi *:after, nav.cp_navi *:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-/* "Showing X to Y of Z results"テキストを非表示 */
-.admin-table__pagination p {
-    display: none;
-}
-
-.admin-table__pagination ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 0;
-}
-
-.admin-table__pagination li {
-    margin: 0;
-}
-
-.admin-table__pagination a,
-.admin-table__pagination span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #E0DFDE;
-    border-left: none;
-    font-family: 'Inika', serif;
-    font-size: 14px;
-    color: #8B7969;
+nav.cp_navi a {
     text-decoration: none;
-    background: #fff;
 }
 
-.admin-table__pagination li:first-child a,
-.admin-table__pagination li:first-child span {
+nav.cp_navi {
+    margin: 0;
+}
+
+.cp_navi .cp_pagination {
+    display: inline-block;
+    padding: 0;
+    background-color: transparent;
+    border: 2px solid #E0DFDE;
+}
+
+.cp_navi .cp_pagenum {
+    font-size: 14px;
+    line-height: 30px;
+    display: block;
+    float: left;
+    padding: 0 15px;
+    transition: 400ms ease;
+    letter-spacing: 0.1em;
+    color: #8B7969;
+    font-family: 'Inika', serif;
     border-left: 1px solid #E0DFDE;
 }
 
-/* アクティブなページ */
-.admin-table__pagination .active span {
+.cp_navi .cp_pagenum:first-child {
+    border-left: none;
+}
+
+.cp_navi .cp_pagenum:hover,
+.cp_navi .cp_pagenum.current {
+    color: #ffffff;
     background-color: #82756A;
-    color: #fff;
 }
 
-/* 前へ・次へボタンを非表示 */
-.admin-table__pagination a[rel="prev"],
-.admin-table__pagination a[rel="next"],
-.admin-table__pagination .disabled span {
-    display: none;
+.cp_navi .cp_pagenum.prev:hover,
+.cp_navi .cp_pagenum.next:hover {
+    color: #ffffff;
+    background-color: #82756A;
 }
 
-/* 最初と最後のli要素（prev/next）を非表示 */
-.admin-table__pagination ul li:first-child,
-.admin-table__pagination ul li:last-child {
-    display: none;
+.cp_navi .cp_pagenum.disabled {
+    color: #ccc;
+    cursor: not-allowed;
 }
 
-/* Previous/Nextテキストを含む要素を非表示 */
-.admin-table__pagination a:not([href*="page"]) {
-    display: none;
-}
-
-/* 無効なボタン */
-.admin-table__pagination .disabled {
-    display: none;
-}
-
-/* ホバー効果 */
-.admin-table__pagination a:hover {
-    background-color: #f5f5f5;
+.cp_navi .cp_pagenum.disabled:hover {
+    background-color: transparent;
+    color: #ccc;
 }
 
 /* テーブル全体 */
@@ -355,14 +331,22 @@
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #8B7969;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
     text-decoration: none;
-    color: #333;
+    color: #8B7969;
     line-height: 1;
+    background-color: transparent;
 }
 
 .modal-close:hover {
-    color: #000;
+    background-color: #f5f5f5;
 }
 
 /* モーダル内のテーブル */
